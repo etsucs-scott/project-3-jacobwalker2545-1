@@ -1,43 +1,38 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/ozVFrFMv)
-# CSCI 1260 — Project
+# Minesweeper Console Game
 
-## Project Instructions
-All project requirements, grading criteria, and submission details are provided on **D2L**.  
-Refer to D2L as the *authoritative source* for this assignment.
+## Overview
+This is a console-based Minesweeper game with multiple board sizes, seeded mine placement, and persistent high scores.  
 
-This repository is intentionally minimal. You are responsible for:
-- Creating the solution and projects
-- Designing the class structure
-- Implementing the required functionality
+## Board Sizes & Mines
+- 8x8 → 10 mines  
+- 12x12 → 25 mines  
+- 16x16 → 40 mines  
 
----
+## Input Commands
+- Reveal a tile: `r row col`  
+- Flag/unflag a tile: `f row col`  
+- Quit: `q`  
 
-## Getting Started (CLI)
+Coordinates are **0-indexed**.
 
-You may use **Visual Studio**, **VS Code**, or the **terminal**.
+## Seed
+- Seed is prompted at the start.  
+- Leave blank to generate from current time.  
+- Seed ensures reproducible mine placement.  
 
-### Create a solution
-```bash
-dotnet new sln -n ProjectName
-```
+## Board Symbols
+- Hidden: `#`  
+- Flagged: `f`  
+- Bomb (hit): `b`  
+- Empty revealed: `.`  
+- Numbers: `1` through `8`  
 
-### Create a project (example: console app)
-```bash
-dotnet new console -n ProjectName.App
-```
+## High Scores
+- Stored in `data/highscores.csv`  
+- Top 5 per board size  
+- Format: `size,seconds,moves,seed,timestamp`  
 
-### Add the project to the solution
-```bash
-dotnet sln add ProjectName.App
-```
-
-### Build and run
+## Build & Run
 ```bash
 dotnet build
-dotnet run --project ProjectName.App
-```
-
-## Notes
-- Commit early and commit often.
-- Your repository history is part of your submission.
-- Update this README with build/run instructions specific to your project.
+dotnet run --project src/Minesweeper.Console/Minesweeper.Console.csproj
